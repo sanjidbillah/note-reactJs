@@ -1,0 +1,66 @@
+.main{
+    height: 100vh;
+    background-color: #CEE6FE;
+    display: flex;
+   
+}
+
+.mobile{
+    width: 360px;
+    height: 750px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.mobile{
+   padding: 20px;
+}
+
+.user{
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+    
+}
+.userImg{
+    border-radius: 12px;
+    height: 50px;
+    width: 50px;
+}
+
+.search{
+    background-color: #F5F6FD;
+    width: 100%;
+    border-width:0px;
+    border:none; 
+    height: 40px;
+    text-indent: 10px;
+}
+
+.h3{
+    display: flex;
+    margin: 0px;
+    margin-top: 10px;
+}
+.gridView{
+    padding-top: 5%;
+    grid-gap: 5%;
+    display: grid;
+    height: 510px;
+    overflow: auto;
+    grid-template-columns: auto auto
+}
+
+.noteItem {
+    border-radius: 12px;
+    padding: 10px;
+  }
+
+.navArea{
+    height: 100%;
+    width: 100%;
+}
+
+ 
