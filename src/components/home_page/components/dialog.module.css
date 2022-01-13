@@ -1,0 +1,9 @@
+.dialog{
+    display: flex;
+}
+
+.item{
+    height: 30px;
+    width: 30px;
+    border-color: black;
+}
