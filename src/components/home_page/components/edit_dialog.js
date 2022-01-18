@@ -4,25 +4,18 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
-import React, { useEffect } from 'react';
+import React from 'react';
 import ProjectAssets from '../../../constants/project_assets';
 
 import classes from './dialog.module.css'
-export const AddDialog = ({ isOpen, handleClose, submitedData, arTitle, arDesc, arColor, editIndex }) => {
+export const EditDialog = ({ isOpen, handleClose, submitedData, arTitle, arDesc }) => {
 
-    const [title, setTitle] = React.useState(``);
+    const [title, setTitle] = React.useState(`data`);
     const [activeIndex, setActiveIndex] = React.useState(0);
 
+    const [description, setDescription] = React.useState(`data`);
 
 
-    const [description, setDescription] = React.useState(``);
-
-    useEffect(() => {
-        setTitle(arTitle);
-        setDescription(arDesc);
-        setActiveIndex(ProjectAssets.color.findIndex(e => e === arColor))
-
-    }, [arTitle, arDesc, arColor])
 
     function submit() {
         handleClose()
@@ -31,7 +24,7 @@ export const AddDialog = ({ isOpen, handleClose, submitedData, arTitle, arDesc, 
             desc: description,
             color: ProjectAssets.color[activeIndex],
             date: '20 May'
-        }, editIndex);
+        });
     }
 
     return (<div>
@@ -47,14 +40,14 @@ export const AddDialog = ({ isOpen, handleClose, submitedData, arTitle, arDesc, 
             </DialogTitle>
 
             <DialogContent>
-                <TextField id="standard-basic" value={title} label="Title" variant="standard" onChange={(event) => { setTitle(event.target.value) }} />
+                <TextField id="standard-basic" label="Title" value={arTitle} variant="standard" onChange={(event) => { setTitle(event.target.value) }} />
 
 
             </DialogContent>
 
 
             <DialogContent>
-                <TextField id="standard-basic" value={description} label="Description" variant="standard" onChange={(event) => { setDescription(event.target.value) }} />
+                <TextField id="standard-basic" value={arDesc} label="Description" variant="standard" onChange={(event) => { setDescription(event.target.value) }} />
             </DialogContent>
             <DialogContent>
                 <div className={classes.dialog}>
