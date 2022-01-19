@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 import ProjectAssets from '../../../constants/project_assets';
 
 import classes from './dialog.module.css'
-export const AddDialog = ({ isOpen, handleClose, submitedData, arTitle, arDesc, arColor, editIndex }) => {
+export const AddDialog = ({ isOpen, handleClose, submitedData, arTitle, arDesc, arColor }) => {
 
     const [title, setTitle] = React.useState(``);
     const [activeIndex, setActiveIndex] = React.useState(0);
@@ -31,7 +31,7 @@ export const AddDialog = ({ isOpen, handleClose, submitedData, arTitle, arDesc, 
             desc: description,
             color: ProjectAssets.color[activeIndex],
             date: '20 May'
-        }, editIndex);
+        });
     }
 
     return (<div>

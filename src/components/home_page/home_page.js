@@ -3,6 +3,7 @@ import React from 'react';
 import classes from './home_page.module.css'
 import ProjectAssets from '../../constants/project_assets';
 import { AddDialog } from './components/add_dialog';
+import { Button } from '@mui/material';
 export default function HomePage() {
 
 
@@ -42,13 +43,12 @@ export default function HomePage() {
         }
 
     };
-    // const deleteItem = (index) => {
-    //     setOpen(false);
-    //     // notes.pop(index);
-    //     // setNotes([...notes])
-    //     // setBNotes([...notes])
+    const deleteItem = (index) => {
+        notes.pop(index);
+        setNotes([...notes])
+        setBNotes([...notes])
 
-    // };
+    };
 
     const search = (v) => {
 
@@ -76,12 +76,18 @@ export default function HomePage() {
                         <h3 className={classes.h3}>Notes</h3>
                         <div style={{ height: '2px', width: '55px', backgroundColor: '#2CC2EC' }}></div>
                     </div>
-                    {notes.length === 0 ? <h3 height='100%'>No notes added yet</h3> : <div className={classes.gridView}>{notes.map((e, i) =>
-                        <div className={classes.noteItem} key={i} onClick={() => noteItemHit(e.name, e.desc, i)} style={{ backgroundColor: e.color }}>
+                    {notes.length === 0 ? <h3 className={classes.noitem}>No notes added yet</h3> : <div className={classes.gridView}>{notes.map((e, i) =>
+                        <div className={classes.noteItem} key={i} onClick={(t) => {
+                            t.stopPropagation();
+                            noteItemHit(e.name, e.desc, i);
+                        }} style={{ backgroundColor: e.color }}>
                             <h4>{e.name}</h4>
                             <p>{e.desc}</p>
                             <p>{e.date}</p>
-
+                            <Button onClick={(t) => {
+                                t.stopPropagation();
+                                deleteItem(i)
+                            }}><i className="fa fa-trash"></i></Button>
 
                         </div>
 

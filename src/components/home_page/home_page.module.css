@@ -39,6 +39,12 @@
     text-indent: 10px;
 }
 
+.noitem{
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .h3{
     display: flex;
     margin: 0px;
